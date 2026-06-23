@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 发现轻松时刻</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f7fa;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 —— 杂志专题氛围 */
+        .hero {
+            background: #0b1622;
+            background-image: radial-gradient(circle at 20% 30%, #1f3a4b 0%, #0b1622 80%);
+            min-height: 68vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3.5rem 1.5rem;
+            color: #eef2f6;
+            border-bottom: 4px solid #facc15;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 10vw, 4.5rem);
+            font-weight: 350;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            color: #facc15;
+        }
+
+        .hero .sub {
+            max-width: 640px;
+            font-size: 1.2rem;
+            color: #b6c8db;
+            margin: 0.8rem auto 1.8rem;
+            border-top: 1px solid #2f475a;
+            padding-top: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .hero .meta-line {
+            display: inline-block;
+            background: #1a2d3b;
+            padding: 0.35rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #bacedb;
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+        }
+
+        .intro-block {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.4rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .intro-block:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .intro-block h2 {
+            font-size: 1.9rem;
+            font-weight: 450;
+            margin-bottom: 1rem;
+            color: #0f2633;
+            letter-spacing: -0.3px;
+            border-left: 5px solid #facc15;
+            padding-left: 1.2rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #2c3e50;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .accent-link {
+            color: #b45309;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .accent-link:hover {
+            color: #78350f;
+            border-bottom-color: #d97706;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 1.8rem 0 0.6rem;
+        }
+
+        .feature-item {
+            background: #f1f5f9;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem;
+            border-left: 4px solid transparent;
+        }
+
+        .feature-item:nth-child(1) { border-left-color: #3b82f6; }
+        .feature-item:nth-child(2) { border-left-color: #10b981; }
+        .feature-item:nth-child(3) { border-left-color: #f59e0b; }
+        .feature-item:nth-child(4) { border-left-color: #8b5cf6; }
+
+        .feature-item h3 {
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .feature-item p {
+            font-size: 0.98rem;
+            color: #334155;
+            margin-bottom: 0;
+        }
+
+        .faq-mini {
+            background: #eef2f6;
+            border-radius: 28px;
+            padding: 2.2rem 2.5rem;
+            margin: 2.2rem 0 1.5rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            margin-bottom: 1rem;
+            color: #0f2633;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            padding: 0.6rem 1rem;
+            background: #ffffffd9;
+            border-radius: 40px;
+            border: 1px solid #d6dee7;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1e293b;
+        }
+
+        .faq-mini details p {
+            margin-top: 0.6rem;
+            font-size: 0.98rem;
+            color: #3b4a5a;
+            padding-left: 0.2rem;
+        }
+
+        .page-footer {
+            margin-top: 3rem;
+            padding: 2.5rem 0 1.8rem;
+            border-top: 1px solid #cfdce8;
+            text-align: center;
+            color: #4b5a6b;
+            font-size: 0.95rem;
+        }
+
+        .page-footer a {
+            color: #b45309;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .page-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-soft {
+            display: inline-block;
+            background: #facc15;
+            color: #0b1622;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 0.5rem;
+        }
+
+        .btn-soft:hover {
+            background: #eab308;
+            transform: scale(1.02);
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 700px) {
+            .hero {
+                min-height: 58vh;
+                padding: 3rem 1.2rem;
+            }
+
+            .intro-block {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .faq-mini {
+                padding: 1.6rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .intro-block h2 {
+                font-size: 1.5rem;
+                padding-left: 1rem;
+            }
+
+            .container {
+                padding: 1.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 杂志专题头图 -->
+<section class="hero">
+    <h1>⏺ 乐<span>鱼</span></h1>
+    <p class="sub">一个让人放松下来的数字角落 ——<br>快速了解网站用途，让每次浏览都清晰、简单。</p>
+    <div class="meta-line">📬 轻量信息 · 温和引导 · 直观体验</div>
+</section>
+
+<!-- 正文区：三段自然介绍 + 特点卡片 + FAQ摘要 -->
+<div class="container">
+
+    <!-- 第一部分：背景与用途 -->
+    <div class="intro-block">
+        <h2>📋 网站是什么？</h2>
+        <p>打开一个网站，最怕的是“不知道这里能做什么”。<strong>乐鱼</strong> 的出发点很简单：无论你是第一次来访，还是回头看看，都能在几秒内明白平台的核心用途。这里没有复杂的跳转，也没有堆叠的广告，而是用最直接的方式展示内容与服务方向。</p>
+        <p>从界面到信息结构，都围绕着「快速识别」来设计。你不需要猜测，也不需要费力寻找说明 —— 第一眼就能抓住重点。</p>
+    </div>
+
+    <!-- 第二部分：三个自然特点 (类似杂志专题段落) -->
+    <div class="intro-block">
+        <h2>🧭 怎么帮你快速上手？</h2>
+        <p>很多用户反馈，他们希望网站像一本翻开就能读的杂志，而不是需要反复研究的说明书。因此 <a href="https://mobilecn-leyu.com" class="accent-link">乐鱼</a> 在布局上采用了清晰的分类与视觉引导，每一项功能或内容都配有简洁的标签和说明，让你自由选择感兴趣的部分。</p>
+        <p>同时，整个页面保持统一的调性：温和的用色、克制的动效、以及有呼吸感的间距。哪怕是第一次访问，也不会感到压迫或信息过载。</p>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>🎯 目标明确</h3>
+                <p>每个模块只讲一件事，没有无关干扰。从首页就能判断接下来的操作路径。</p>
+            </div>
+            <div class="feature-item">
+                <h3>📄 内容优先</h3>
+                <p>文字和功能区块拥有充足的留白，阅读体验优先于视觉炫技。</p>
+            </div>
+            <div class="feature-item">
+                <h3>⚡ 轻量响应</h3>
+                <p>无论在手机还是桌面，页面都保持舒适的阅读尺寸与交互反馈。</p>
+            </div>
+            <div class="feature-item">
+                <h3>🧩 渐进了解</h3>
+                <p>想深入探索某个方向？点按链接即可平滑过渡，不会打断当前节奏。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第三部分：常见场景 + FAQ摘要 -->
+    <div class="intro-block">
+        <h2>🌱 一些你可能关心的事</h2>
+        <p>有人是路过随意看看，有人是带着具体问题来的。为了照顾不同习惯，<strong>乐鱼</strong> 在页面里保留了适度的 FAQ 摘要，回答几个最常被问到的点。这样既不会让新用户觉得茫然，也不会让老用户觉得重复。</p>
+        <p>另外，网站不刻意渲染“稀缺”或“紧急”，所有信息都是真实、克制的呈现。你可以按照自己的节奏慢慢浏览，完全不必担心被催促。</p>
+
+        <div class="faq-mini">
+            <h3>📌 快速问答</h3>
+            <details>
+                <summary>❓ 这个网站主要提供什么？</summary>
+                <p>平台围绕信息展示与轻互动展开，你可以把它看作一个整合了常见需求与内容的服务型站点。所有功能都经过精简，只保留最核心的部分。</p>
+            </details>
+            <details>
+                <summary>❓ 是否需要注册或下载？</summary>
+                <p>大部分内容无需注册即可浏览。部分互动功能可能需要简单授权，但不会有强制下载或多余步骤。</p>
+            </details>
+            <details>
+                <summary>❓ 如何判断网站是否适合我？</summary>
+                <p>浏览首页的模块简介和导航就能判断大概方向。如果仍有疑问，也可以通过页面底部的提示进一步了解。</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="page-footer">
+        <p>如果你还想进一步探索，可以直接前往 <a href="https://mobilecn-leyu.com">乐鱼</a> 查看完整内容。</p>
+        <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #64748b;">保持自然节奏 · 每一次点击都源于兴趣</p>
+    </div>
+
+</div>
+
+</body>
+</html>
