@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 移动索引介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f0f2f5;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .page-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* hero 区域 */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e4e9f0;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s ease;
+        }
+        .hero:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: #13294b;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .hero h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #6b7a8f;
+            margin-left: 0.4rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 720px;
+            color: #2d3f57;
+            margin-top: 0.6rem;
+        }
+
+        /* 卡片网格 / 通用卡片 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 2rem;
+            flex: 1 1 280px;
+            border: 1px solid #e4e9f0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+        }
+        .card h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #1f3a5f;
+            border-left: 3px solid #8b9dc3;
+            padding-left: 0.75rem;
+        }
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2d3f57;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            padding: 0.35rem 0 0.35rem 1.2rem;
+            position: relative;
+        }
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #7f8fa6;
+            font-weight: 700;
+        }
+
+        /* 双栏布局 (场景 + 提示) */
+        .split-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .split-row .card {
+            flex: 1 1 240px;
+        }
+
+        /* faq 摘要卡片 */
+        .faq-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e4e9f0;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2rem;
+        }
+        .faq-card h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f3a5f;
+        }
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+        .faq-question {
+            font-weight: 500;
+            color: #1a2d44;
+        }
+        .faq-answer {
+            color: #3f526b;
+            font-size: 0.92rem;
+            margin-top: 0.15rem;
+        }
+
+        /* 访问说明 (轻提示) */
+        .access-note {
+            background: #f7f9fc;
+            border-radius: 20px;
+            padding: 1.2rem 2rem;
+            border: 1px solid #e0e6ef;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .access-note span {
+            font-size: 0.95rem;
+            color: #2f4a6e;
+        }
+        .access-note a {
+            color: #1b3d6b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #9bafca;
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+        .access-note a:hover {
+            border-bottom: 1px solid #1b3d6b;
+        }
+
+        .footer {
+            margin-top: 1rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid #dce2ec;
+            font-size: 0.85rem;
+            color: #6a7b92;
+            text-align: right;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem; }
+            .hero { padding: 1.8rem 1.2rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 1.4rem 1.2rem; }
+            .faq-card { padding: 1.4rem 1.2rem; }
+            .access-note { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- hero 简介：从用户识别网站用途切入 -->
+    <div class="hero">
+        <h1>乐鱼<small> · 移动索引</small></h1>
+        <p>当你在移动端快速寻找信息入口时，<a href="https://mobileindex-leyu.com" style="color:#1b3d6b; font-weight:500; text-decoration:underline; text-underline-offset:2px;">乐鱼</a> 提供了一种轻量、聚焦的索引方式。它不追求大而全，而是围绕移动场景梳理关键路径，帮助你减少跳转步骤、更快定位到目标页面。下面的摘要和特点可以帮助你判断这个工具是否契合自己的使用习惯。</p>
+    </div>
+
+    <!-- 亮点卡片：两个并排 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>📌 结构亮点</h2>
+            <ul>
+                <li>按移动端常用需求组织分类，避免信息过载</li>
+                <li>每个索引项附带简短说明，降低试错成本</li>
+                <li>页面轻量，加载快速，适合碎片化使用</li>
+                <li>无强制注册或登录，直接浏览索引内容</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>⚙️ 使用建议</h2>
+            <ul>
+                <li>将页面添加至主屏幕（iOS/Android）可当作轻应用</li>
+                <li>适合日常查询、工具导航、服务入口整理</li>
+                <li>若你需要频繁切换手机与桌面，建议收藏以备同步</li>
+                <li>遇到索引未覆盖的领域，可结合搜索补充</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 双栏：场景 + 克制说明 -->
+    <div class="split-row">
+        <div class="card">
+            <h2>🔍 典型场景</h2>
+            <p>刚接触移动索引的新用户，往往困惑于“从哪开始”。<a href="https://mobileindex-leyu.com" style="color:#1b3d6b; font-weight:500; text-decoration:underline; text-underline-offset:2px;">乐鱼</a> 的设计正是为了回答这个问题：它把常用入口（比如生活服务、资讯阅读、效率工具）整合在一个页面，让你不必在浏览器里反复搜索或翻找书签。无论是快速查天气、找文档模板，还是跳转某个管理后台，都可以先到索引页定位。</p>
+        </div>
+        <div class="card">
+            <h2>📐 场景延伸</h2>
+            <p>对于团队内部或轻度办公场景，也可以将 <a href="https://mobileindex-leyu.com" style="color:#1b3d6b; font-weight:500; text-decoration:underline; text-underline-offset:2px;">乐鱼</a> 作为统一入口参考。它不涉及敏感数据，仅是链接的整理与分类，安全风险较低。建议搭配浏览器自带的密码管理或隐私模式使用，以便在公用设备上保护个人账号。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 (克制问答) -->
+    <div class="faq-card">
+        <h2>❓ 常见疑问摘要</h2>
+        <div class="faq-item">
+            <div class="faq-question">「乐鱼」与一般导航站有什么不同？</div>
+            <div class="faq-answer">它更侧重移动端适配与索引的轻量化，没有弹窗广告或繁杂推荐，只展示分类链接和必要说明。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">是否需要下载 App 或注册？</div>
+            <div class="faq-answer">不需要。这是一个纯网页索引，打开即用。你可以在浏览器中正常访问，也可以添加快捷方式。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">索引内容会定期更新吗？</div>
+            <div class="faq-answer">索引会基于移动端主流服务做阶段性调整，但不会频繁变动。若发现链接失效，可结合站点内的反馈方式联系维护者。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">是否保证所有链接永久有效？</div>
+            <div class="faq-answer">无法保证第三方链接的长期有效性，但会尽力维护核心索引的可用性。使用时建议自行判断链接的可靠性。</div>
+        </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 (嵌入链接) -->
+    <div class="access-note">
+        <span>🔗 如果你希望快速了解索引结构，可以随时查看 <a href="https://mobileindex-leyu.com">乐鱼</a> 的首页。它本身不追踪用户，仅提供分类链接。</span>
+        <span style="font-size:0.88rem; color:#4a6180;">建议在私人网络或可信设备上使用，避免在公共设备上保存个人书签。</span>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+        <span>内容仅供索引参考 · 请独立判断链接用途</span>
+    </div>
+</div>
+</body>
+</html>
