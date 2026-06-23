@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简介 · 乐鱼</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f6f2ea;
+      font-family: "Georgia", "Noto Serif SC", "Times New Roman", serif;
+      color: #2e2b27;
+      line-height: 1.75;
+      padding: 2.5rem 1rem 5rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fcf9f4;
+      padding: 3.5rem 2.5rem;
+      border-radius: 4px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    /* 开场短句 — 斜体引子 */
+    .opening {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #5b524b;
+      font-style: italic;
+      border-left: 4px solid #c3b6a4;
+      padding-left: 1.2rem;
+      margin-bottom: 2.4rem;
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      color: #3e3731;
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .subhead {
+      color: #7b6f64;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #e4d9ce;
+      padding-bottom: 0.8rem;
+    }
+
+    p {
+      margin: 1.4rem 0;
+      text-align: justify;
+      word-break: break-word;
+    }
+
+    .intro-block {
+      background: #f0ebe3;
+      padding: 1.6rem 2rem;
+      border-radius: 4px;
+      margin: 2rem 0;
+    }
+
+    .intro-block p {
+      margin: 0.2rem 0;
+    }
+
+    /* 特点列表 — 更偏文章式 */
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0 1.6rem;
+    }
+
+    .features li {
+      counter-increment: feature-counter;
+      margin-bottom: 1.1rem;
+      padding-left: 2.2rem;
+      position: relative;
+    }
+
+    .features li::before {
+      content: "●";
+      position: absolute;
+      left: 0.2rem;
+      top: 0.2rem;
+      color: #b09b87;
+      font-size: 1.1rem;
+    }
+
+    .features strong {
+      color: #3f352e;
+    }
+
+    .quote-card {
+      background: #f7f1ea;
+      padding: 1.8rem 2rem;
+      border-left: 5px solid #b7a693;
+      margin: 2.5rem 0;
+      font-size: 0.98rem;
+    }
+
+    .quote-card p:first-child {
+      margin-top: 0;
+    }
+
+    .quote-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footnote {
+      color: #6c5f54;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e1d5c9;
+    }
+
+    a {
+      color: #3f352e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #c0ad9a;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #000;
+      text-decoration-color: #5f4f3f;
+    }
+
+    .inline-link {
+      font-weight: 400;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 1rem 0.6rem; }
+      .container { padding: 2rem 1.2rem; }
+      h1 { font-size: 1.6rem; }
+      .opening { font-size: 1.05rem; padding-left: 1rem; }
+      .intro-block { padding: 1.2rem 1rem; }
+      .quote-card { padding: 1.2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 开场短句：一种叙述的入口 -->
+  <div class="opening">
+    “人们常常先去寻找一个平台，然后才慢慢看清它的边界与质地。”
+  </div>
+
+  <h1>关于乐鱼</h1>
+  <div class="subhead">一份站点介绍 · 从信任的细节说起</div>
+
+  <p>
+    在信息趋于离散的移动端生态里，一个站点的可信度往往来自它持续提供的稳定性与清晰的逻辑。<a href="https://mobilemain-leyu.com">乐鱼</a> 正是在这样的考量下被反复审视的地址。它并非突然出现的名字，而是经过一段时间的内容沉淀与结构梳理，逐渐呈现出自身的主线。
+  </p>
+
+  <p>
+    与其说这是一个入口，不如说它是一个聚合了基础功能与指向的节点。对于多数使用者而言，能够快速理解一个站点所承载的内容边界，比追求一时的功能数量更为实际。乐鱼在版块划分、响应适配和访问路径上，都保持了相对克制的风格，这为初次接触的人提供了较低的认知负担。
+  </p>
+
+  <!-- 承接段落：从站点介绍到可信说明 -->
+  <div class="intro-block">
+    <p><strong>从可信说明的角度看</strong> —— 一个站点的技术实现与内容定位，往往比宣传语更能说明问题。乐鱼采用移动优先的响应结构，页面层级直接，没有多余的跳转干扰。在常规使用场景下，它更接近一个整洁的起点，而不是一个堆砌功能的容器。</p>
+  </div>
+
+  <!-- 特点列表：更偏向文章中的列举 -->
+  <ul class="features">
+    <li><strong>结构优先</strong> — 信息层级清晰，主要功能入口一目了然，减少了寻找路径的迂回。</li>
+    <li><strong>内容中立</strong> — 未采用煽动性措辞，页面语言倾向于陈述而非诱导，保持适度的信息密度。</li>
+    <li><strong>视觉一致</strong> — 界面用色与排版系统统一，没有突兀的强调或分散注意力的装饰。</li>
+    <li><strong>持续可用</strong> — 经过基础适配，在常用移动设备上均可正常渲染与导航。</li>
+  </ul>
+
+  <p>
+    这些特点并不宏大，但恰好构成了一个可信站点所需的基本骨架。在一个充斥着浮夸承诺与临时页面的环境下，克制本身反而成为值得提及的品质。乐鱼没有试图去迎合所有偏好，而是选择了一种相对平衡的呈现方式：既保留足够的可读性，也不过度渲染功能。
+  </p>
+
+  <!-- 引用块 / 提示框 — 温和的观察 -->
+  <div class="quote-card">
+    <p>“一个站点的价值，往往不在于它声称能做什么，而在于它实际允许用户做什么、不做什么。乐鱼的页面没有试图掩盖自己的边界，这种诚实本身就构成了信任的起点。”</p>
+    <p style="margin-top:0.8rem; text-align:right; font-style:italic; color:#6b5d52;">—— 摘自一份产品观察笔记</p>
+  </div>
+
+  <p>
+    对于想要了解站点全貌的使用者，最直接的方式就是亲自浏览其结构与内容。通过移动设备打开 <a href="https://mobilemain-leyu.com">乐鱼</a>，便能感受到这种相对克制的文章式布局。不需要事先学习，也无需猜测隐藏的入口，所有主要栏目都陈列在可视范围内。
+  </p>
+
+  <p>
+    这种设计取向并非偶然。在页面撰写与信息架构上，乐鱼更倾向于让内容自身说明问题。站内没有堆积无关的跳转，也没有过度频繁的更新提示。对于注重效率与清晰度的用户而言，这样的节奏是合宜的。
+  </p>
+
+  <!-- FAQ 摘要 — 简洁且不刻意 -->
+  <div style="margin: 2.2rem 0 0.8rem;">
+    <p style="font-weight:500; margin-bottom:0.3rem; color:#3e3731;">常见疑问摘要</p>
+    <ul style="list-style:none; padding-left:0.2rem;">
+      <li style="margin-bottom:0.6rem;">· 该网站需要额外注册吗？—— 页面本身为信息展示性质，具体功能以实际页面指引为准。</li>
+      <li style="margin-bottom:0.6rem;">· 内容会频繁变动吗？—— 从当前结构看，乐鱼保持相对稳定的栏目与风格，更新节奏以实际为准。</li>
+      <li style="margin-bottom:0;">· 是否适配所有手机？—— 基于移动优先设计，主流设备均可正常浏览。</li>
+    </ul>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="footnote">
+    <p>站点的最终印象，始终来自实地浏览时的感受。本文仅从结构、语言与视觉层面提供一种观察视角，不构成任何形式的保证或承诺。建议有兴趣的读者自行打开 <a href="https://mobilemain-leyu.com">乐鱼</a>，根据个人需要做出判断。</p>
+    <p style="margin-top:0.8rem; font-size:0.85rem; color:#97897c;">—— 一份简洁的站点介绍 · 叙述于安静时刻</p>
+  </div>
+
+</div>
+</body>
+</html>
